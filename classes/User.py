@@ -1,5 +1,5 @@
 from classes.Conversation import Conversation
-
+from classes.Message import Message
 
 class User(object):
     def __init__(self, token=None):
@@ -46,5 +46,24 @@ class User(object):
             assert isinstance(u, User)
             newConvo.addParticipant(u)
         self.conversations.append(newConvo)  # append to our current conversations a new conversation
+
+    def sendMessage(self):
+        """sends a new message"""
+        raise NotImplementedError
+
+    def editMessage(self, target_message, edited_text): #target message is the message selected to perform actions on by user
+        """passes a message instance with the intended text edit"""
+        assert isinstance(target_message, Message)
+        target_message.edit(new_text=edited_text)
+        raise NotImplementedError
+
+    def deleteMessage(self, target_message): #target message is the message selected to perform actions on by user
+        """forwards delete message to a message instance"""
+        assert isinstance(target_message, Message)
+        target_message.delete()
+        raise NotImplementedError
+
+
+
 
 

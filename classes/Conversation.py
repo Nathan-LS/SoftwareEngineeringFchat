@@ -1,4 +1,5 @@
 from classes.User import User
+from classes.Message import Message
 
 
 class Conversation(object):
@@ -40,4 +41,11 @@ class Conversation(object):
 
     def removeParticipant(self, participant):
         assert isinstance(participant, User)
+        raise NotImplementedError
+
+    def sendMessage(self, text, sender):
+        """creates a new message and appends in to our current conversation messages"""
+        assert isinstance(sender, User)
+        new_message = Message(m_author=sender, m_aud=self.participants, new_message=True, m_body=text)
+        self.messages.append(new_message)
         raise NotImplementedError
