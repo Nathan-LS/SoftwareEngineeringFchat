@@ -1,11 +1,11 @@
-from classes.User import User
+import classes.User
 from classes.Message import Message
 
 
 class Conversation(object):
     def __init__(self, convo_creator, new_convo = False, convo_id = None):
         """handles a conversation among multiple users"""
-        assert isinstance(convo_creator, User)
+        assert isinstance(convo_creator, classes.User.User)
         self.id = convo_id #conversation ID will be none if new convo otherwise we use this convo id to fetch data from server
         self.creator = convo_creator
         self.participants = []
@@ -36,16 +36,16 @@ class Conversation(object):
 
     def addParticipant(self, participant):
         """adds a user to our conversation"""
-        assert isinstance(participant, User)
+        assert isinstance(participant, classes.User.User)
         raise NotImplementedError
 
     def removeParticipant(self, participant):
-        assert isinstance(participant, User)
+        assert isinstance(participant, classes.User.User)
         raise NotImplementedError
 
     def sendMessage(self, text, sender):
         """creates a new message and appends in to our current conversation messages"""
-        assert isinstance(sender, User)
+        assert isinstance(sender, classes.User.User)
         new_message = Message(m_author=sender, m_aud=self.participants, new_message=True, m_body=text)
         self.messages.append(new_message)
         raise NotImplementedError

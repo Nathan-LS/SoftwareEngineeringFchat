@@ -1,4 +1,4 @@
-from classes.User import User
+import classes.User
 
 class Message(object):
     def __init__(self, m_author, m_aud, m_body, new_message=False, message_id=None):
