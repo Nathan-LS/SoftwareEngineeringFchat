@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 #include "FchatConversation.h"
 
 class conversation;
@@ -11,12 +12,20 @@ class message;
 
 class user{
 public:
-    user(); //constructor
-    void create(); //create a new user function
+    user(std::string username); //temp set username
+    void create(); //create a new user function ie register function
     void save(); //saves user details to the server calling the api method
     void changeBio(); //function to change information about the user's bio
     void changePass(); //function to begin the process of prompting the user to change their password
-    void setup();
+    void setup(); //prompt for biography changes
+
+    const std::string &getUsername() const;
+
+    conversation *newConvo(std::vector<user *> &users); //create convo and return pointer to it
+    void newMessage(conversation *to_convo,
+                    std::string &message_text); //create a new message given a convo instance and text
+    friend std::ostream &operator<<(std::ostream &os, const user &u);
+
 private:
     std::string username_; //user's username
     std::string fName_; //fname

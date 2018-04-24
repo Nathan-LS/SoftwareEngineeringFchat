@@ -2,6 +2,7 @@
 #define FCHATC_CONVERSATION_H
 
 #include <string>
+#include <iostream>
 #include <vector>
 #include "FchatUser.h"
 #include "FchatMessage.h"
@@ -11,17 +12,20 @@ class message;
 
 class conversation {
 public:
-    conversation(); //default constructor
-    void create(); //creates a new conversation if it does not yet exit
+    conversation(std::vector<user *> &participants); //constructor
     void save(); //saves and sends any changes in the the conversation to the central server
     void load(); //loads the conversations data either from the API or local storage
     void addParticipant(user *); //adds a new user to the conversation
     void removeParticipant(user *); //removes the specific user from the conversation
-    message * newMessage(std::string body); //returns a pointer to the created message
-    void sendMessage(message *); // sends a created messaged to the API
+
+    void newMessage(user *author, std::string &body); //returns a pointer to the created message
+
+    const std::vector<user *> &getParticipants_() const;
+
+    friend std::ostream &operator<<(std::ostream &os, const conversation &c); //prints participants
 private:
     std::vector<user *> participants_; //users involved in conversation
-    std::vector<std::string> messages_; // messages belonging to the conversation
+    std::vector<message *> messages_; // messages belonging to the conversation
     std::string dateStarted_; //date and time that the conversation was created
     std::string lastMessageDate_; //date and time of the last message sent in the conversation
 };
