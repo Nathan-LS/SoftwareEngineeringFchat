@@ -7,6 +7,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <netdb.h>
+#include <cstring>
+
+using namespace std;
 
 int main() {
     int client, server;
@@ -20,11 +23,11 @@ int main() {
 
     client = socket(AF_INET, SOCK_STREAM, 0);
     if(client < 0){
-        cout << "Error no server connection"
+        std::cout << "Error no server connection";
         exit(1);
     }
 
-    cout << "Client Socket created" << endl;
+    std::cout << "Client Socket created" << endl;
 
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(portNum);
@@ -32,12 +35,25 @@ int main() {
     //connecting to socket server
 
     if(connect(client, (struct sockaddr*)&server_addr, sizeof(server_addr)) == 0){
-        cout << "Connecting to server..." endl;
+        std::cout << "Connecting to server..." << endl;
     }
 
-    recv(client, buffer, bufsize, 0);
-    cout << "Confimed Connection" << endl;
+    string str = "{\"username\":\"timmy\",\"password\":\"timmy\"}";
+    cout << "Creating String" << endl;
+    strncpy(buffer, str.c_str(), sizeof(buffer));
+    buffer[sizeof(buffer) - 1] = 0;
+    cout << "finished" << endl;
+    do{
+        cout << "s";
+        send(client, buffer, bufsize, 0);
+    }while(*buffer != 42);
 
+    std::cout << "Confimed Connection " << endl;
 
+    do{
+        recv(client, buffer, bufsize, 0);
+        std::cout << buffer << endl;
+    }while(*buffer != 42);
+    
     return 0;
 }
