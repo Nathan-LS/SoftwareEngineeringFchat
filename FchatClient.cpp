@@ -39,12 +39,13 @@ int main() {
     }
 
     string str = "{\"username\":\"timmy\",\"password\":\"timmy\"}";
-    cout << "Creating String" << endl;
+
     strncpy(buffer, str.c_str(), sizeof(buffer));
     buffer[sizeof(buffer) - 1] = 0;
-    cout << "finished" << endl;
+    
+    cout << buffer;
+
     do{
-        cout << "s";
         send(client, buffer, bufsize, 0);
     }while(*buffer != 42);
 
