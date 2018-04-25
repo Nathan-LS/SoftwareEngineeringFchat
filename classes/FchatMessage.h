@@ -10,11 +10,12 @@ class user;
 class message {
 public:
     message(user *author, std::string &body); //creates a new message with body text
-    void create();
     void save(); //saves any changes made to the message and calls the proper API function to update the server
-    void load();
-    void edit(); //allows for editing the message after it has been sent
+    void load(); //load existing message from api
+    void edit(std::string &editText); //allows for editing the message after it has been sent
+    void deleteM(); //delete message object
     void post(); //pushes message to server
+
 private:
     std::string messageText_; //the message text/body
     std::string timeStamp_; //timestamp of the message

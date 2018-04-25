@@ -15,12 +15,12 @@ public:
     conversation(std::vector<user *> &participants); //constructor
     void save(); //saves and sends any changes in the the conversation to the central server
     void load(); //loads the conversations data either from the API or local storage
-    void addParticipant(user *); //adds a new user to the conversation
-    void removeParticipant(user *); //removes the specific user from the conversation
+    void addParticipant(user *u); //adds a new user to the conversation
+    void removeParticipant(user *u); //removes the specific user from the conversation
 
     void newMessage(user *author, std::string &body); //returns a pointer to the created message
-
-    const std::vector<user *> &getParticipants_() const;
+    void deleteMessage(message *messageDel);//remove a selected message from internal container of conversations
+    const std::vector<user *> &getParticipants_() const; //returns a list of participants in message
 
     friend std::ostream &operator<<(std::ostream &os, const conversation &c); //prints participants
 private:

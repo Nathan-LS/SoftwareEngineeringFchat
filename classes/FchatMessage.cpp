@@ -18,10 +18,6 @@ message::message(user *author, std::string &body) {
 
 }
 
-void message::create() {
-
-}
-
 void message::save() {
 
 }
@@ -30,7 +26,7 @@ void message::load() {
 
 }
 
-void message::edit() {
+void message::edit(std::string &editText) {
 
 }
 
@@ -39,4 +35,8 @@ void message::post() {
               << ". Now message is pushed to server at this point.\n";
     std::cout << "\n\nComplete message sent:\nMessage author: " << *author_ << ", message text= '" << messageText_
               << "'\nFunction sendMessage is now complete!";
+}
+
+void message::deleteM() {
+
 }

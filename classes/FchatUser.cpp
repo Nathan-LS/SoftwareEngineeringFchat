@@ -4,7 +4,7 @@ user::user(std::string username) {
     username_ = username;
 }
 
-void user::create() {
+void user::registerUser() {
 
 }
 
@@ -44,4 +44,24 @@ std::ostream &operator<<(std::ostream &os, const user &u) {
 
 const std::string &user::getUsername() const {
     return username_;
+}
+
+void user::changeStatus(int statusCode, std::string &statusMessage) {
+
+}
+
+void user::addContact(user *contact) {
+
+}
+
+void user::removeContact(user *contact) {
+
+}
+
+void user::editMessage(message *messageEdit) {
+
+}
+
+void user::deleteMessage(message *messageDel) {
+
 }

@@ -56,3 +56,7 @@ std::ostream &operator<<(std::ostream &os, const conversation &c) {
     }
     return os;
 }
+
+void conversation::deleteMessage(message *messageDel) {
+
+}
