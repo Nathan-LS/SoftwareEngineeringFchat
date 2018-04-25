@@ -54,4 +54,5 @@ std::ostream &operator<<(std::ostream &os, const conversation &c) {
     for (auto i: c.getParticipants_()) {
         os << *i << std::endl;
     }
+    return os;
 }
