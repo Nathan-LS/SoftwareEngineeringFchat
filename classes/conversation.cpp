@@ -1,4 +1,4 @@
-#include "FchatConversation.h"
+#include "conversation.h"
 
 conversation::conversation(std::vector<user *> &participants) {
     participants_ = participants;

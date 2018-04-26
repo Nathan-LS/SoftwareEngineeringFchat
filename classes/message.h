@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "FchatUser.h"
+#include "user.h"
 
 class user;
 

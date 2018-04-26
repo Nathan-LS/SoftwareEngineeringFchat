@@ -4,8 +4,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "FchatUser.h"
-#include "FchatMessage.h"
+#include "user.h"
+#include "message.h"
 
 class user;
 class message;

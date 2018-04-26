@@ -1,4 +1,4 @@
-#include "FchatMessage.h"
+#include "message.h"
 
 #define max_length 250
 

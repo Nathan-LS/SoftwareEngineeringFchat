@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "classes/FchatUser.h"
+#include "classes/user.h"
 
 void demo_sendmessage(std::string &message_input) { //demo function for sending a message
     user LoggedIn("Me"); //simulate complete authentication somewhere else

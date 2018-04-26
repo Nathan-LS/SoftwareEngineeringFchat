@@ -1,4 +1,4 @@
-#include "FchatUser.h"
+#include "user.h"
 
 user::user(std::string username) {
     username_ = username;
