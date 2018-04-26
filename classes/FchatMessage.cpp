@@ -34,9 +34,13 @@ void message::post() {
     std::cout << "\n\nmessage.post - Received call to push message object @ " << this
               << ". Now message is pushed to server at this point.\n";
     std::cout << "\n\nComplete message sent:\nMessage author: " << *author_ << ", message text= '" << messageText_
-              << "'\nFunction sendMessage is now complete!";
+              << "'\nFunction sendMessage is now complete!\n";
 }
 
 void message::deleteM() {
+
+}
+
+void message::displayMessage() {
 
 }

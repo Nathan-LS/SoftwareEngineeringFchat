@@ -14,6 +14,7 @@ public:
     void load(); //load existing message from api
     void edit(std::string &editText); //allows for editing the message after it has been sent
     void deleteM(); //delete message object
+    void displayMessage(); //displays the message
     void post(); //pushes message to server
 
 private:

@@ -14,8 +14,7 @@ class user{
 public:
     user(std::string username); //temp set username
     void save(); //saves user details to the server calling the api method
-    void setup(); //prompt for biography changes
-
+    void load(); //loads a message from api
     void registerUser(); //register a new user function ie register function
     void changeStatus(int statusCode, std::string &statusMessage);
 

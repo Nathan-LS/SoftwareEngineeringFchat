@@ -20,10 +20,6 @@ void user::changePass() {
 
 }
 
-void user::setup() {
-
-}
-
 conversation *user::newConvo(std::vector<user *> &users) {
     conversation *newConvo = new conversation(users); //creates a new convo with our selected users
     //todo add convo to users
@@ -63,5 +59,9 @@ void user::editMessage(message *messageEdit) {
 }
 
 void user::deleteMessage(message *messageDel) {
+
+}
+
+void user::load() {
 
 }

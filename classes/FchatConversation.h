@@ -17,10 +17,10 @@ public:
     void load(); //loads the conversations data either from the API or local storage
     void addParticipant(user *u); //adds a new user to the conversation
     void removeParticipant(user *u); //removes the specific user from the conversation
-
-    void newMessage(user *author, std::string &body); //returns a pointer to the created message
-    void deleteMessage(message *messageDel);//remove a selected message from internal container of conversations
     const std::vector<user *> &getParticipants_() const; //returns a list of participants in message
+
+    void newMessage(user *author, std::string &body); //creates a new message instance and adds to convo message storage
+    void deleteMessage(message *messageDel);//remove a selected message from internal container of conversations
 
     friend std::ostream &operator<<(std::ostream &os, const conversation &c); //prints participants
 private:
